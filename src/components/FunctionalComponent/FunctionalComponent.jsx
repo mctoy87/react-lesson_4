@@ -6,35 +6,15 @@ export const FunctionalComponent = ({min, max}) => {
   const [userNumber, setUserNumber] = useState('');
   const [result, setResult] = useState('Результат');
   const [count, setCount] = useState(0);
-  const [randomNumber] = useState(
-    Math.floor(Math.random() * (max - min + 1)) + min
-  );
+  const [randomNumber, setRandomNumber] = useState(0);
 
   useEffect(() => {
-    console.log('useEffect - CDM');
-    console.log('useEffect - CDU');
-  });
-
-  useEffect(() => {
-    console.log('[]useEffect - CDM');
-  }, []);
-
-  useEffect(() => {
-    console.log('[userNumber]useEffect - CDM');
-  }, [userNumber]);
-
-  useEffect(() => {
-    console.log('[userNumber]useEffect - CDM');
-    return () => {
-      console.log('CWU');
-    };
+    setRandomNumber(Math.floor(Math.random() * (max - min + 1)) + min);
   }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    setCount(prevCount => prevCount + 1);
-    setCount(prevCount => prevCount + 1);
     setCount(prevCount => prevCount + 1);
 
     setResult(() => {
